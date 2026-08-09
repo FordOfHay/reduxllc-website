@@ -33,3 +33,10 @@ V3 refinement:
 - Strengthened consultation-focused calls to action.
 - Rebuilt hero-video.mp4 from the static hero image as a smooth center zoom only (no lateral movement or shake).
 - Mobile fallback now uses a center zoom only.
+
+V4 corrective pass:
+- Hero video rebuilt from the still image with a centered slow zoom only.
+- No X/Y translation, pan, rotation, shake, or CSS transform is applied to the video element.
+- Video object-position is locked to center center.
+- Image fallback uses a slow one-way centered zoom.
+- Existing comparison slider, interactive service-area map, testimonials, SEO files, mobile improvements, and consultation CTAs are preserved.
