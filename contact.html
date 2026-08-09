@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Redux LLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page-hero" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1740&auto=format&fit=crop');">
+  <div class="page-hero-overlay"></div>
+  <header class="site-header">
+    <div class="container header-row">
+      <a href="index.html" class="logo">
+        <span class="logo-icon" aria-hidden="true">
+          <span class="logo-icon-ring"></span>
+          <svg class="logo-icon-house" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 4 L50 22 L50 56 L10 56 L10 22 Z" fill="#8bbd47"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <span class="main">REDUX</span><span class="sub">LLC</span>
+        </span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">&#9776;</button>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="page-hero-content">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Get in touch for a free estimate</p>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Contact Info</h2>
+        <div class="info-row"><span class="info-label">Address</span><span>Catonsville, MD 21228</span></div>
+        <div class="info-row"><span class="info-label">Phone</span><span><a href="tel:+14102995938">(410) 299-5938</a></span></div>
+        <div class="info-row"><span class="info-label">Email</span><span><a href="mailto:reduxllcdesigns@gmail.com">reduxllcdesigns@gmail.com</a></span></div>
+        <div class="info-row"><span class="info-label">Service Area</span><span>Serving Maryland, DC &amp; Northern Virginia</span></div>
+
+        <div class="social-row">
+          <a href="https://www.facebook.com/profile.php?id=61555245044784" aria-label="Facebook" target="_blank" rel="noopener">f</a>
+          <a href="https://www.instagram.com/reduxgardenandhome/" aria-label="Instagram" target="_blank" rel="noopener">ig</a>
+        </div>
+
+        <div class="hours-box">
+          <h4>Hours of Operation</h4>
+          <div class="hours-row"><span>Mon &ndash; Fri</span><span>8:00 AM &ndash; 7:00 PM</span></div>
+          <div class="hours-row"><span>Sat &amp; Sun</span><span>By Appointment Only</span></div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form onsubmit="return false;">
+          <div class="form-row">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+          </div>
+          <div class="form-row">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+          </div>
+          <div class="form-row">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email address">
+          </div>
+          <div class="form-row">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-row">
+      <ul class="footer-nav">
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="footer-meta">
+        <div class="license">Licensed &amp; Insured</div>
+        <div>&copy; 2026 Redux LLC. All Rights Reserved.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
