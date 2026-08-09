@@ -1,0 +1,26 @@
+REDUX LLC WEBSITE — IMMERSIVE UPGRADE
+
+Implemented:
+- Full-screen cinematic hero video with optimized WebP fallback.
+- Scroll reveal animations with reduced-motion accessibility support.
+- Interactive image comparison component on the homepage.
+  Current version compares an architectural/concept treatment to the finished image so no fake "before" photo is presented.
+  When you have matched before-and-after project photos, replace the two background images in style.css.
+- Interactive DMV service-area map with keyboard-accessible hotspots.
+- Improved mobile hero, navigation behavior, touch-friendly buttons, and motion fallbacks.
+- Image lazy loading / async decoding for non-critical photos.
+- Optimized hero asset: hero-kitchen.webp (~100 KB) plus hero-video.mp4 (~500 KB).
+- SEO titles and descriptions for every page.
+- Canonical URLs, Open Graph metadata, Twitter card metadata.
+- LocalBusiness/GeneralContractor JSON-LD structured data on the homepage.
+- robots.txt and sitemap.xml.
+- site.webmanifest and theme metadata.
+
+DEPLOYMENT:
+1. Upload/replace these files in the GitHub reduxllc-website repository.
+2. Commit changes to the main branch.
+3. Cloudflare Pages should deploy automatically.
+4. Test reduxllc.com on desktop and mobile after Cloudflare finishes deployment.
+
+IMPORTANT:
+The hero video was made from the current hero image using a subtle cinematic movement. Replace hero-video.mp4 later with real project footage for an even stronger result; keep the same filename and the website will use it automatically.

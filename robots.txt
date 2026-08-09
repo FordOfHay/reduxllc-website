@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reduxllc.com/sitemap.xml
