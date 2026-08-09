@@ -24,3 +24,12 @@ DEPLOYMENT:
 
 IMPORTANT:
 The hero video was made from the current hero image using a subtle cinematic movement. Replace hero-video.mp4 later with real project footage for an even stronger result; keep the same filename and the website will use it automatically.
+
+
+V3 refinement:
+- Preserved immersive comparison slider, interactive DMV map, SEO files and reveal animations.
+- Rewrote comparison copy for a polished client-facing experience.
+- Added real homeowner testimonials from Heather Jiles and Mark Hitt.
+- Strengthened consultation-focused calls to action.
+- Rebuilt hero-video.mp4 from the static hero image as a smooth center zoom only (no lateral movement or shake).
+- Mobile fallback now uses a center zoom only.
