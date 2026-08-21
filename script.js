@@ -17,11 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('nav.main-nav a, .footer-nav a').forEach(function (link) {
     var href = link.getAttribute('href');
     if (href === current) link.classList.add('active');
+    // Individual posts (blog-*.html) should also light up the Blog link.
+    else if (href === 'blog.html' && current.indexOf('blog-') === 0) link.classList.add('active');
   });
 
   // Smooth, lightweight scroll reveals.
   var revealTargets = Array.from(document.querySelectorAll('.reveal-section'));
-  document.querySelectorAll('.cards-grid .project-card, .services-grid .service-item, .process-grid .process-card, .gallery-grid .g-item').forEach(function(el, i){
+  document.querySelectorAll('.cards-grid .project-card, .services-grid .service-item, .process-grid .process-card, .gallery-grid .g-item, .post-grid .post-card').forEach(function(el, i){
     el.classList.add('reveal-item');
     el.style.transitionDelay = Math.min(i % 5, 4) * 70 + 'ms';
     revealTargets.push(el);
