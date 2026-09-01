@@ -686,6 +686,19 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   background:var(--green);
   color:#fff;
 }
+.form-fallback{
+  margin:0 0 18px;
+  padding:12px 14px;
+  background:var(--cream-dark);
+  border-left:3px solid var(--green);
+  font-size:14px;
+  line-height:1.55;
+}
+.form-fallback a{
+  color:var(--green);
+  font-weight:600;
+  text-decoration:underline;
+}
 .contact-form{
   background:#fff;
   border:1px solid #e4ded2;
