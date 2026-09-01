@@ -686,6 +686,29 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   background:var(--green);
   color:#fff;
 }
+.social-row a.social-fb{
+  background:#1877f2;
+  border-color:#1877f2;
+  color:#fff;
+}
+.social-row a.social-ig{
+  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  border-color:transparent;
+  color:#fff;
+}
+.social-row a.social-fb:hover{
+  background:#0d5fce;
+  border-color:#0d5fce;
+  color:#fff;
+  transform:translateY(-2px);
+}
+.social-row a.social-ig:hover{
+  background:radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+  border-color:transparent;
+  color:#fff;
+  opacity:.88;
+  transform:translateY(-2px);
+}
 .form-fallback{
   margin:0 0 18px;
   padding:12px 14px;
