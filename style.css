@@ -11,13 +11,13 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
 body{
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   color:var(--ink);
   background:var(--cream);
   line-height:1.6;
 }
 h1,h2,h3,.logo,.brand-script{
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
 }
 a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
@@ -34,7 +34,7 @@ img{max-width:100%;display:block;}
   border:1px solid transparent;
   cursor:pointer;
   transition:all .25s ease;
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   font-weight:500;
 }
 .btn-primary{
@@ -100,14 +100,14 @@ header.site-header{
   gap:6px;
 }
 .logo .main{
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
   font-size:32px;
   font-weight:700;
   letter-spacing:3px;
   color:#ffffff;
 }
 .logo .sub{
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   font-size:13px;
   font-weight:500;
   letter-spacing:4px;
@@ -328,7 +328,7 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
 }
 .service-icon svg{width:44px;height:44px;}
 .service-item h4{
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
   font-size:17px;
   font-weight:600;
   margin-bottom:10px;
@@ -412,7 +412,7 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   gap:14px;
 }
 .process-head .num{
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
   font-size:26px;
   color:var(--gold);
   font-weight:700;
@@ -513,13 +513,13 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   fill:#e9e3d3;
 }
 .map-label{
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   fill:#e9e3d3;
   font-size:13px;
   letter-spacing:3px;
 }
 .map-city-label{
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   fill:#b9b3a3;
   font-size:9px;
   letter-spacing:1px;
@@ -536,14 +536,14 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   animation:mapPulse 2.4s ease-out infinite;
 }
 .map-pin-label{
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
   font-weight:700;
   fill:#ffffff;
   font-size:15px;
   letter-spacing:.5px;
 }
 .map-caption{
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   fill:#cfc9ba;
   font-size:10px;
   letter-spacing:3px;
@@ -590,7 +590,7 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   background:#fff;
 }
 .badge-item .badge-num{
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
   font-size:22px;
   color:var(--green);
   font-weight:700;
@@ -732,6 +732,91 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   font-weight:600;
   margin-bottom:20px;
 }
+.contact-grid{
+  gap:64px;
+  align-items:start;
+}
+.contact-info h2{
+  font-size:30px;
+  font-weight:400;
+  margin-bottom:26px;
+}
+.contact-info .info-row{
+  gap:18px;
+  padding:18px 0;
+  border-top:1px solid #e7e1d6;
+  font-size:16px;
+  align-items:baseline;
+}
+.contact-info .info-label{
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:500;
+  min-width:104px;
+  color:var(--green);
+}
+.social-row{
+  gap:12px;
+  margin-top:30px;
+}
+.social-row a{
+  width:46px;
+  height:46px;
+  border:0;
+  border-radius:14px;
+  box-shadow:0 2px 8px rgba(28,28,28,.13);
+}
+.social-row a svg{
+  width:22px;
+  height:22px;
+}
+.social-row a:hover{
+  box-shadow:0 8px 18px rgba(28,28,28,.2);
+}
+.hours-box{
+  border:0;
+  border-radius:14px;
+  padding:22px 24px;
+  background:#efe9df;
+  margin-top:30px;
+}
+.hours-box h4{
+  font-family:'DM Sans', 'Jost', sans-serif;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-weight:600;
+  color:var(--green);
+  margin-bottom:14px;
+}
+.hours-row{
+  font-size:15px;
+  padding:5px 0;
+}
+.contact-form{
+  border-radius:18px;
+  border:1px solid #eae4d9;
+  padding:40px;
+  box-shadow:0 10px 34px rgba(28,28,28,.07);
+}
+.contact-form h3{
+  font-size:24px;
+  font-weight:400;
+  margin-bottom:18px;
+}
+.form-fallback{
+  border-radius:10px;
+  padding:14px 16px;
+  background:#f4f0e8;
+  font-size:15px;
+}
+.logo .main,
+.logo .sub,
+.section-title,
+.section-title em{
+  font-weight:400;
+}
 .form-row{
   margin-bottom:18px;
 }
@@ -749,7 +834,7 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   padding:12px 14px;
   border:1px solid #d8d0bf;
   background:var(--cream);
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   font-size:14px;
   color:var(--ink);
 }
@@ -1207,7 +1292,7 @@ img{content-visibility:auto;}
   margin:40px 0;
   padding:6px 0 6px 28px;
   border-left:3px solid var(--gold);
-  font-family:'Playfair Display', serif;
+  font-family:'DM Serif Display', 'Playfair Display', serif;
   font-size:23px;
   font-style:italic;
   line-height:1.5;
@@ -1238,7 +1323,7 @@ aside.rail{padding:70px 0 30px;}
   margin-bottom:24px;
 }
 .rail-box h4{
-  font-family:'Jost', sans-serif;
+  font-family:'DM Sans', 'Jost', sans-serif;
   font-size:11px;
   letter-spacing:2.2px;
   text-transform:uppercase;
