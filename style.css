@@ -137,7 +137,7 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   flex-direction:column;
   background:
     linear-gradient(90deg, rgba(10,20,15,.72) 0%, rgba(10,20,15,.35) 45%, rgba(10,20,15,.1) 70%),
-    url('hero-kitchen.png') center/cover no-repeat;
+    url('hero-kitchen.webp') center/cover no-repeat;
   color:#fff;
 }
 .hero-content{
