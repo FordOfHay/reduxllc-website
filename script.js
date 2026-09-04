@@ -1,12 +1,14 @@
 /* ==========================================================================
    Redux LLC — site scripts
    --------------------------------------------------------------------------
-   SET YOUR GOOGLE ANALYTICS ID HERE.
-   Paste the GA4 Measurement ID (it looks like G-ABC1234XYZ) between the
-   quotes below. Leave it empty and the site still works — the cookie banner
-   and the on-site click tracking keep running, Google Analytics just stays off.
+   GOOGLE ANALYTICS
+   The GA4 Measurement ID below belongs to the "Redux LLC" Analytics account
+   (property: Redux LLC - reduxllc.com). Analytics only loads after a visitor
+   presses Accept on the cookie banner — nothing is sent to Google before that.
+   Clearing the ID switches Google Analytics off; the banner and the on-site
+   click tracking keep working either way.
    ========================================================================== */
-var REDUX_GA4_ID = '';           // e.g. 'G-XXXXXXXXXX'
+var REDUX_GA4_ID = 'G-1H6B8JPKKB';   // Redux LLC — reduxllc.com (GA4)
 var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
 
 (function () {
