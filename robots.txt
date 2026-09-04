@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /post-template.html
+Disallow: /privacy.html
 
 Sitemap: https://reduxllc.com/sitemap.xml
