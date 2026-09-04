@@ -289,38 +289,14 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
       });
     });
 
-    /* ---------------- Project-type picker ---------------- */
-    var picker = document.getElementById('projectPicker');
-    if (picker) {
-      var note = document.getElementById('pickerNote');
-      var stored = sessionStorage.getItem('reduxProjectType');
-      var fromUrl = new URLSearchParams(location.search).get('project');
-      var preset = fromUrl || stored;
-
-      function selectChip(value) {
-        picker.querySelectorAll('.chip').forEach(function (c) {
-          c.classList.toggle('is-selected', c.dataset.project === value);
-          c.setAttribute('aria-pressed', String(c.dataset.project === value));
-        });
-        try { sessionStorage.setItem('reduxProjectType', value); } catch (e) { }
-        if (note) {
-          note.innerHTML = 'Great — <strong>' + value + '</strong>. Fill in your details below and pick ' +
-            '<strong>' + value + '</strong> in the <em>Project Type</em> menu at the bottom of the form.';
-          note.classList.add('is-shown');
-        }
-        track('project_type_select', { label: value });
-      }
-
-      picker.querySelectorAll('.chip').forEach(function (chip) {
-        chip.setAttribute('aria-pressed', 'false');
-        chip.addEventListener('click', function () {
-          selectChip(chip.dataset.project);
-          var frame = document.getElementById('btIframe');
-          if (frame) frame.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      });
-
-      if (preset && PROJECT_TYPES.indexOf(preset) !== -1) selectChip(preset);
+    /* ---------------- Project interest from a service link ----------------
+       Buildertrend's form lives in an iframe on their own domain, so nothing
+       here can pre-select its Project Type menu — browsers forbid it. What we
+       can still do is record which service brought the visitor here, so the
+       reporting shows it without asking them the same question twice. */
+    var arrivedFor = new URLSearchParams(location.search).get('project');
+    if (arrivedFor && PROJECT_TYPES.indexOf(arrivedFor) !== -1) {
+      track('project_interest', { label: arrivedFor });
     }
 
     /* Service cards elsewhere on the site carry the choice to the form. */

@@ -1794,3 +1794,13 @@ body.has-sticky-cta .cookie-banner{bottom:96px;}
   .contact-info .info-row{flex-direction:column;gap:4px;}
   .project-picker{padding:22px 18px;}
 }
+
+/* Lead-in above the Buildertrend form (replaces the old project picker). */
+.form-lead{
+  color:var(--muted);
+  font-size:14.5px;
+  line-height:1.6;
+  margin:6px 0 20px;
+  max-width:60ch;
+}
+.form-lead strong{color:var(--green-dark);font-weight:600;}
