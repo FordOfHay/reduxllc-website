@@ -58,7 +58,7 @@ img{max-width:100%;display:block;}
 
 /* HEADER / NAV (shared across all pages) */
 header.site-header{
-  padding:26px 0;
+  padding:14px 0;
   position:relative;
   z-index:10;
 }
@@ -73,9 +73,10 @@ header.site-header{
   line-height:1;
 }
 .logo-img{
-  height:46px;
+  height:78px;
   width:auto;
   display:block;
+  max-width:none;
 }
 nav.main-nav ul{
   list-style:none;
@@ -787,7 +788,7 @@ footer{
 }
 @media (max-width:600px){
   .container{padding:0 20px;}
-  .logo-img{height:32px;}
+  .logo-img{height:52px;}
   .hero-text h1{font-size:30px;}
   .hero-text p{font-size:15px;}
   .hero-buttons{flex-direction:column;}
