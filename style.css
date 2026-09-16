@@ -71,12 +71,30 @@ header.site-header{
   display:flex;
   align-items:center;
   line-height:1;
+  transition:opacity .2s ease;
 }
+.logo:hover{opacity:.85;}
 .logo-img{
-  height:78px;
+  height:100px;
   width:auto;
   display:block;
   max-width:none;
+}
+/* full-width header: logo sits flush at the left edge, nav at the right */
+header.site-header .container{
+  max-width:none;
+  padding:0 36px;
+}
+/* soft dark fade behind the header so the logo and links stay readable */
+.hero::before,
+.page-hero::before{
+  content:"";
+  position:absolute;
+  top:0; left:0; right:0;
+  height:180px;
+  background:linear-gradient(180deg, rgba(10,20,15,.55) 0%, rgba(10,20,15,0) 100%);
+  pointer-events:none;
+  z-index:1;
 }
 nav.main-nav ul{
   list-style:none;
@@ -104,6 +122,8 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   color:#fff;
 }
 .hero-content{
+  position:relative;
+  z-index:2;
   flex:1;
   display:flex;
   align-items:center;
@@ -788,7 +808,8 @@ footer{
 }
 @media (max-width:600px){
   .container{padding:0 20px;}
-  .logo-img{height:52px;}
+  header.site-header .container{padding:0 20px;}
+  .logo-img{height:64px;}
   .hero-text h1{font-size:30px;}
   .hero-text p{font-size:15px;}
   .hero-buttons{flex-direction:column;}
