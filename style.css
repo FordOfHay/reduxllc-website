@@ -1815,11 +1815,7 @@ body.has-sticky-cta .cookie-banner{bottom:96px;}
   display:block;
   max-width:none;
 }
-header.site-header{
-  padding:14px 0;
-  -webkit-backdrop-filter:none;
-  backdrop-filter:none; /* no blurred band: logo sits flush on the photo */
-}
+header.site-header{padding:14px 0;}
 /* full-width header: logo sits flush at the left edge, nav at the right */
 header.site-header .container{
   max-width:none;
