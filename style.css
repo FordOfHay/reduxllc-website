@@ -988,10 +988,9 @@ footer{
 .section-kicker{text-align:center;text-transform:uppercase;letter-spacing:3px;font-size:11px;color:var(--gold);margin-bottom:12px;font-weight:600;}
 .section-intro{max-width:760px;margin:0 auto 34px;text-align:center;color:rgba(255,255,255,.72);font-size:15px;}
 .compare-card{position:relative;max-width:980px;height:min(62vw,590px);min-height:360px;margin:0 auto;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 70px rgba(0,0,0,.28);background:#000;}
-.compare-image{position:absolute;inset:0;background:url('hero-kitchen.webp') center/cover no-repeat;}
-.compare-after{filter:none;}
-.compare-before{width:48%;overflow:hidden;filter:grayscale(.95) sepia(.22) contrast(1.1) brightness(.8);}
-.compare-before::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;mix-blend-mode:screen;opacity:.45;}
+.compare-image{position:absolute;inset:0;background-position:center;background-size:cover;background-repeat:no-repeat;}
+.compare-after{background-image:url('hero-kitchen.webp');}
+.compare-before{background-image:url('before-kitchen.webp');clip-path:inset(0 52% 0 0);-webkit-clip-path:inset(0 52% 0 0);}
 .compare-divider{position:absolute;top:0;bottom:0;left:48%;width:2px;background:#fff;transform:translateX(-1px);pointer-events:none;box-shadow:0 0 0 1px rgba(0,0,0,.18);}
 .compare-divider span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--green-dark);font-size:20px;box-shadow:0 6px 24px rgba(0,0,0,.25);}
 .compare-range{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;z-index:5;}

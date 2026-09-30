@@ -239,9 +239,13 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
       var divider = compare.querySelector('.compare-divider');
       if (!range || !before || !divider) return;
       function update() {
-        var value = range.value + '%';
-        before.style.width = value;
-        divider.style.left = value;
+        var pct = Number(range.value);
+        // Clip rather than resize: the before layer stays the full width of the
+        // card, so its photo is framed exactly like the after photo and the two
+        // line up across the divider at every slider position.
+        before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        before.style.webkitClipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+        divider.style.left = pct + '%';
       }
       range.addEventListener('input', update, { passive: true });
       update();
