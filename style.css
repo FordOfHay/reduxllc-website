@@ -1964,3 +1964,68 @@ header.site-header .container{
     -webkit-tap-highlight-color:transparent;
   }
 }
+
+/* ============================================================
+   V6 — ABOUT PAGE VIDEO
+   Click-to-play facade: only the thumbnail loads with the page,
+   and the YouTube player is injected on click. Nothing reaches
+   Google until the visitor asks for it, which keeps this honest
+   with the cookie banner and keeps the page fast.
+   ============================================================ */
+.video-embed{
+  position:relative;
+  width:100%;
+  height:460px;
+  overflow:hidden;
+  background:#0d1d16;
+  cursor:pointer;
+}
+.video-embed-thumb{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s cubic-bezier(.2,.7,.2,1), filter .3s ease;
+}
+.video-embed:hover .video-embed-thumb{transform:scale(1.03);filter:brightness(.92);}
+.video-embed::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(7,16,12,0) 45%,rgba(7,16,12,.72) 100%);
+  pointer-events:none;
+}
+.video-embed-play{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:84px;height:60px;
+  padding:0;border:none;background:none;
+  cursor:pointer;
+  z-index:2;
+  transition:transform .25s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.video-embed-play svg{width:100%;height:100%;display:block;filter:drop-shadow(0 6px 18px rgba(0,0,0,.45));}
+.video-embed:hover .video-embed-play{transform:translate(-50%,-50%) scale(1.08);}
+.video-embed-play:focus-visible{outline:3px solid var(--gold);outline-offset:6px;}
+.video-embed-caption{
+  position:absolute;
+  left:22px;right:22px;bottom:18px;
+  z-index:2;
+  color:#fff;
+  font-size:14px;
+  letter-spacing:.2px;
+  text-shadow:0 2px 10px rgba(0,0,0,.5);
+  pointer-events:none;
+}
+/* Once playing, the iframe replaces the contents and fills the frame. */
+.video-embed.is-playing{cursor:default;}
+.video-embed.is-playing::after{display:none;}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+
+@media (max-width:980px){
+  .video-embed{height:320px;}
+  .video-embed-play{width:68px;height:49px;}
+  .video-embed-caption{font-size:13px;left:16px;right:16px;bottom:14px;}
+}

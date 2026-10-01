@@ -411,3 +411,55 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
     }, { passive: true });
   });
 })();
+
+/* ====================================================================
+   CLICK-TO-PLAY YOUTUBE
+   The page ships only a thumbnail. The player is built on click, so no
+   YouTube script or cookie is loaded for visitors who never press play
+   — which is what the consent banner promises. Uses youtube-nocookie.
+   ==================================================================== */
+(function () {
+  function ready(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else { fn(); }
+  }
+
+  ready(function () {
+    var frames = document.querySelectorAll('.video-embed[data-yt]');
+    if (!frames.length) return;
+
+    Array.prototype.forEach.call(frames, function (box) {
+      var id = box.getAttribute('data-yt');
+      if (!id) return;
+
+      function play() {
+        if (box.classList.contains('is-playing')) return;
+        box.classList.add('is-playing');
+
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+                     '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        iframe.title = box.getAttribute('data-yt-title') || 'Redux LLC video';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.setAttribute('allowfullscreen', '');
+        iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+
+        box.innerHTML = '';
+        box.appendChild(iframe);
+
+        if (typeof window.reduxTrack === 'function') {
+          window.reduxTrack('video_play', { label: box.getAttribute('data-yt-title') || id });
+        }
+      }
+
+      box.addEventListener('click', play);
+      box.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+          e.preventDefault();
+          play();
+        }
+      });
+    });
+  });
+})();
