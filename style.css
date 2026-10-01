@@ -1914,3 +1914,53 @@ header.site-header .container{
 
 /* Two sources now, so the badge row carries both counts. */
 .rrb-stars--houzz{color:#4DBC15;}
+
+/* ============================================================
+   V6 — MOBILE NAV FIX
+   On the homepage, ".hero .site-header" and ".hero .hero-content"
+   were both given z-index:3. The hero content comes later in the
+   DOM, so it painted on top of the open menu: the links showed
+   through the headline but every tap landed on the <h1> instead.
+   Lifting the header (and the panel above it) puts the menu back
+   on top. Tap targets were also only the 15px of text itself,
+   because the row padding sat on the <li> and not the <a>.
+   ============================================================ */
+@media (max-width:980px){
+  header.site-header,
+  .hero .site-header,
+  .page-hero .site-header{z-index:60;}
+
+  nav.main-nav{
+    z-index:70;
+    box-shadow:0 18px 40px rgba(0,0,0,.30);
+    border-top:1px solid rgba(255,255,255,.08);
+    max-height:calc(100vh - 100%);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  /* Whole row tappable, not just the text. 52px clears the 44px
+     minimum comfortably on a phone. */
+  nav.main-nav ul li{padding:0;}
+  nav.main-nav ul li a{
+    display:block;
+    width:100%;
+    padding:16px 0;
+    font-size:16px;
+    line-height:20px;
+    opacity:1;
+  }
+  nav.main-nav ul li a:active{background:rgba(255,255,255,.08);}
+
+  /* The button itself was a bare glyph — give it a real hit area. */
+  .nav-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;
+    height:44px;
+    margin-right:-10px;
+    line-height:1;
+    -webkit-tap-highlight-color:transparent;
+  }
+}
