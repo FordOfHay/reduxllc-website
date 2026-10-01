@@ -1,0 +1,46 @@
+# Cloudflare Pages header rules for reduxllc.com
+#
+# Why this file exists: visitors were still being served an old copy of the
+# site from their own browser cache after an update, which is why a change
+# would look correct in a private window and unchanged in a normal one.
+# These rules make every page check with the server before it is shown,
+# so an update is live for everyone the moment it is published.
+
+# Pages: never reuse a stored copy. Always fetch from the server.
+/
+  Cache-Control: no-store, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*.html
+  Cache-Control: no-store, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Stylesheet and script: allowed to be stored, but the browser must ask the
+# server whether its copy is still current. If nothing changed the server
+# replies "not modified" and nothing is re-downloaded, so this costs almost
+# nothing and removes any chance of a stale layout or broken menu.
+/*.css
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Photos change rarely and are the heavy part of the page, so they are cached
+# for a day. Replacing a photo under the same filename takes up to 24 hours
+# to reach returning visitors — save it under a new filename to skip the wait.
+/*.webp
+  Cache-Control: public, max-age=86400
+
+/*.jpg
+  Cache-Control: public, max-age=86400
+
+/*.png
+  Cache-Control: public, max-age=86400
+
+/*.svg
+  Cache-Control: public, max-age=86400
+
+/*.ico
+  Cache-Control: public, max-age=86400
