@@ -624,6 +624,8 @@ nav.main-nav a:hover, nav.main-nav a.active{opacity:.65;}
   grid-template-columns:repeat(4, 1fr);
   grid-auto-rows:220px;
   gap:14px;
+  /* dense backfills the holes that tall/wide tiles would otherwise leave */
+  grid-auto-flow:row dense;
 }
 .gallery-grid .g-item{
   overflow:hidden;
