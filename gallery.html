@@ -190,6 +190,11 @@
           b.setAttribute('aria-pressed', String(on));
         });
       }
+      try {
+        var u = new URL(location.href);
+        if (name === 'all') u.searchParams.delete('filter'); else u.searchParams.set('filter', name);
+        history.replaceState(null, '', u);
+      } catch (e) {}
       if (typeof window.reduxTrack === 'function' && name !== 'all') {
         window.reduxTrack('gallery_filter', { label: name });
       }
@@ -267,7 +272,18 @@
       x0 = null;
     }, { passive: true });
 
-    applyFilter('all');
+    /* A ?filter= in the URL opens the gallery on that category, so the
+       homepage project cards can land people on the right photos. */
+    var wanted = (new URLSearchParams(location.search).get('filter') || 'all').toLowerCase();
+    var known  = tiles.some(function (t) { return t.getAttribute('data-cat') === wanted; });
+    applyFilter(known ? wanted : 'all');
+    if (known) {
+      var anchor = bar || grid;
+      requestAnimationFrame(function () {
+        var y = anchor.getBoundingClientRect().top + window.pageYOffset - 24;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
