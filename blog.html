@@ -50,32 +50,19 @@
 <p class="blog-intro">Twenty years of remodeling in Maryland and DC turns up the same questions again and again — what things cost, how long they take, and what to expect once the drywall comes down. We write the answers here.</p>
 
 <!-- ============================================================
-     FEATURED POST (the newest one)
-     To feature a different post, swap the image, category,
-     title, excerpt, date, read time and the two href values.
-     ============================================================ -->
-<a class="feature-post" href="blog-kitchen-remodel-cost.html">
-<div class="feature-img">
-<span class="feature-flag">Latest</span>
-<img alt="White kitchen with waterfall quartz island, wood slat range hood and glass globe pendants" decoding="async" src="blog-kitchen-cost.jpg"/>
-</div>
-<div class="feature-body">
-<div class="eyebrow">Kitchens</div>
-<h2>What Drives the Cost of a Kitchen Remodel</h2>
-<p>Cabinetry, countertop square footage, and whether the plumbing moves are the three decisions that shape a kitchen budget more than any finish selection does. Here is how we talk through them with clients.</p>
-<div class="post-meta"><span>August 21, 2026</span><span class="dot"></span><span>6 min read</span><span class="dot"></span><span>Redux LLC</span></div>
-<span class="readmore">Read the post <span class="arw"></span></span>
-</div>
-</a>
+     POSTS
+     Add one <a class="post-card"> block below for each post. Order
+     does not matter: the script at the bottom of this page sorts
+     them by data-date and promotes the newest one into the large
+     "Latest" slot automatically. Everything older falls into the
+     grid underneath, newest first.
 
-<!-- ============================================================
-     POST GRID
-     Add one block like the commented example below for every
-     additional post. Newest first. Three across on desktop.
+     The only field you must get right is data-date (YYYY-MM-DD).
+     data-author shows on the featured post only.
      ============================================================ -->
-<div class="post-grid">
+<div class="post-grid" id="postGrid">
 
-<a class="post-card" href="blog-remodeling-estimate.html">
+<a class="post-card" data-author="Redux LLC" data-date="2026-10-01" href="blog-remodeling-estimate.html">
 <div class="thumb"><img alt="A room stripped back before remodeling work begins" decoding="async" loading="lazy" src="before-kitchen.webp"/></div>
 <div class="post-body">
 <div class="eyebrow">Planning &amp; Process</div>
@@ -85,9 +72,19 @@
 </div>
 </a>
 
+<a class="post-card" data-author="Redux LLC" data-date="2026-08-21" href="blog-kitchen-remodel-cost.html">
+<div class="thumb"><img alt="White kitchen with waterfall quartz island, wood slat range hood and glass globe pendants" decoding="async" loading="lazy" src="blog-kitchen-cost.jpg"/></div>
+<div class="post-body">
+<div class="eyebrow">Kitchens</div>
+<h3>What Drives the Cost of a Kitchen Remodel</h3>
+<p class="excerpt">Cabinetry, countertop square footage, and whether the plumbing moves are the three decisions that shape a kitchen budget more than any finish selection does.</p>
+<div class="post-meta"><span>August 21, 2026</span><span class="dot"></span><span>6 min read</span></div>
+</div>
+</a>
+
 <!-- COPY FROM HERE ------------------------------------------
-<a class="post-card" href="blog-your-post-filename.html">
-<div class="thumb"><img alt="Describe the photo" decoding="async" loading="lazy" src="IMAGE-URL-HERE"/></div>
+<a class="post-card" data-author="Redux LLC" data-date="YYYY-MM-DD" href="blog-your-post-filename.html">
+<div class="thumb"><img alt="Describe the photo" decoding="async" loading="lazy" src="your-image.jpg"/></div>
 <div class="post-body">
 <div class="eyebrow">Category</div>
 <h3>Your post title goes here</h3>
@@ -135,5 +132,90 @@
 </div>
 </footer>
 <script src="script.js?v=20261001d"></script>
+<script>
+/* ====================================================================
+   LATEST POST PROMOTION
+   Every post is written into the grid above as a .post-card, so the
+   HTML always contains all of them and search engines see every link
+   whether or not this script runs. On load it sorts the cards by
+   data-date and lifts the newest one into the wide "Latest" panel.
+   Add a post anywhere in the list and it lands in the right place.
+   ==================================================================== */
+(function () {
+  function run() {
+    var grid = document.getElementById('postGrid');
+    if (!grid) return;
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.post-card'));
+    if (!cards.length) return;
+
+    cards.sort(function (a, b) {
+      var da = a.getAttribute('data-date') || '';
+      var db = b.getAttribute('data-date') || '';
+      return db.localeCompare(da);          // newest first
+    });
+
+    var newest = cards.shift();
+
+    // Rebuild the newest card in the wide featured layout.
+    var img      = newest.querySelector('.thumb img');
+    var eyebrow  = newest.querySelector('.eyebrow');
+    var title    = newest.querySelector('h3');
+    var excerpt  = newest.querySelector('.excerpt');
+    var meta     = newest.querySelector('.post-meta');
+    var author   = newest.getAttribute('data-author') || '';
+
+    var feature = document.createElement('a');
+    feature.className = 'feature-post';
+    feature.setAttribute('href', newest.getAttribute('href'));
+
+    var imgWrap = document.createElement('div');
+    imgWrap.className = 'feature-img';
+    var flag = document.createElement('span');
+    flag.className = 'feature-flag';
+    flag.textContent = 'Latest';
+    imgWrap.appendChild(flag);
+    if (img) {
+      var big = document.createElement('img');
+      big.setAttribute('src', img.getAttribute('src'));
+      big.setAttribute('alt', img.getAttribute('alt') || '');
+      big.setAttribute('decoding', 'async');   // above the fold: load it eagerly
+      imgWrap.appendChild(big);
+    }
+
+    var body = document.createElement('div');
+    body.className = 'feature-body';
+    if (eyebrow) { var e = document.createElement('div'); e.className = 'eyebrow'; e.textContent = eyebrow.textContent; body.appendChild(e); }
+    if (title)   { var h = document.createElement('h2'); h.textContent = title.textContent; body.appendChild(h); }
+    if (excerpt) { var pEl = document.createElement('p'); pEl.textContent = excerpt.textContent; body.appendChild(pEl); }
+    if (meta) {
+      var m = meta.cloneNode(true);
+      if (author) {
+        var dot = document.createElement('span'); dot.className = 'dot';
+        var who = document.createElement('span'); who.textContent = author;
+        m.appendChild(dot); m.appendChild(who);
+      }
+      body.appendChild(m);
+    }
+    var more = document.createElement('span');
+    more.className = 'readmore';
+    more.appendChild(document.createTextNode('Read the post '));
+    var arw = document.createElement('span'); arw.className = 'arw';
+    more.appendChild(arw);
+    body.appendChild(more);
+
+    feature.appendChild(imgWrap);
+    feature.appendChild(body);
+    grid.parentNode.insertBefore(feature, grid);
+
+    newest.parentNode.removeChild(newest);
+    cards.forEach(function (c) { grid.appendChild(c); });   // re-append in date order
+    if (!cards.length) grid.style.display = 'none';         // only one post: no empty grid
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else { run(); }
+})();
+</script>
 </body>
 </html>
