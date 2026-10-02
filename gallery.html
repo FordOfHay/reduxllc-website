@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Remodeling Gallery | Redux LLC Maryland, DC &amp; Northern Virginia</title>
-<link href="style.css?v=20261001a" rel="stylesheet"/>
+<link href="style.css?v=20261002b" rel="stylesheet"/>
 <meta content="Photos of recent Redux LLC projects — kitchens, bathrooms, whole-home renovations, porches, decks and patios across Washington DC, Maryland and Northern Virginia." name="description"/><meta content="index, follow, max-image-preview:large" name="robots"/><meta content="website" property="og:type"/><meta content="Redux LLC" property="og:site_name"/><meta content="Remodeling Gallery | Redux LLC Maryland, DC &amp; Northern Virginia" property="og:title"/><meta content="Photos of recent Redux LLC projects — kitchens, bathrooms, whole-home renovations, porches, decks and patios across Washington DC, Maryland and Northern Virginia." property="og:description"/><meta content="https://reduxllc.com/gallery.html" property="og:url"/><meta content="https://reduxllc.com/hero-kitchen.webp" property="og:image"/><meta content="summary_large_image" name="twitter:card"/><meta content="#1b3a2f" name="theme-color"/><link href="https://reduxllc.com/gallery.html" rel="canonical"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://reduxllc.com/"},{"@type":"ListItem","position":2,"name":"Gallery","item":"https://reduxllc.com/gallery.html"}]}</script><link href="site.webmanifest" rel="manifest"/></head>
 <body>
 <div class="page-hero" style="background-image:url('gallery-hero.webp');">
@@ -45,53 +45,35 @@
 </nav>
 <section class="section reveal-section">
 <div class="container">
-<div class="gallery-grid">
-<div class="g-item g-tall">
-<img alt="Quartz waterfall island with brass fixtures in a remodeled kitchen" decoding="async" loading="lazy" src="kitchen-waterfall-island.webp"/>
+<div class="gallery-filters" id="galleryFilters" role="group" aria-label="Filter projects by room">
+<button class="gal-btn is-on" type="button" data-filter="all">All <span class="gal-n">8</span></button>
+<button class="gal-btn" type="button" data-filter="kitchen">Kitchens <span class="gal-n">3</span></button>
+<button class="gal-btn" type="button" data-filter="bath">Bathrooms <span class="gal-n">1</span></button>
+<button class="gal-btn" type="button" data-filter="exterior">Exteriors <span class="gal-n">4</span></button>
 </div>
-<div class="g-item g-wide">
-<img alt="Walnut kitchen cabinets with a green glass tile backsplash" decoding="async" loading="lazy" src="kitchen-walnut-green-tile.webp"/>
-</div>
-<div class="g-item">
-<img alt="Marble-clad walk-in shower" decoding="async" loading="lazy" src="bath-marble-shower.webp"/>
-</div>
-<div class="g-item g-tall">
-<img alt="Herringbone floor hallway with stone feature wall and open staircase" decoding="async" loading="lazy" src="interior-herringbone-hall.webp"/>
-</div>
-<div class="g-item">
-<img alt="Kitchen island with brass pendant lighting and tile backsplash" decoding="async" loading="lazy" src="kitchen-island-pendants.webp"/>
-</div>
-<div class="g-item">
-<img alt="Walk-in glass shower and freestanding tub with black fixtures" decoding="async" loading="lazy" src="bath-walk-in-shower.webp"/>
-</div>
-<div class="g-item g-wide">
-<img alt="Cedar pergola over a poolside patio with seating" decoding="async" loading="lazy" src="exterior-pergola-pool.webp"/>
-</div>
-<div class="g-item">
-<img alt="Sage green kitchen cabinetry with glass fronts and a farmhouse sink" decoding="async" loading="lazy" src="kitchen-sage-green.webp"/>
-</div>
-<div class="g-item g-tall">
-<img alt="Bay window above a herringbone hardwood floor" decoding="async" loading="lazy" src="interior-bay-window.webp"/>
-</div>
-<div class="g-item">
-<img alt="Kitchen island beneath a coffered ceiling with lantern pendants" decoding="async" loading="lazy" src="kitchen-coffered-ceiling.webp"/>
-</div>
-<div class="g-item g-wide">
-<img alt="Composite deck overlooking the water" decoding="async" loading="lazy" src="exterior-waterfront-deck.webp"/>
-</div>
-<div class="g-item">
-<img alt="Deep green tiled bathroom with a built-in tub" decoding="async" loading="lazy" src="bath-green-tile.webp"/>
-</div>
-<div class="g-item g-tall">
+<div class="gallery-grid" id="galleryGrid">
+<div class="g-item g-tall" data-cat="exterior" role="button" tabindex="0" aria-label="Enlarge: Stone farmhouse with a covered wraparound porch">
 <img alt="Stone farmhouse with a covered wraparound porch" decoding="async" loading="lazy" src="exterior-stone-porch.webp"/>
 </div>
-<div class="g-item">
-<img alt="White kitchen with a large island, range and panelled refrigerator" decoding="async" loading="lazy" src="kitchen-island-range.webp"/>
+<div class="g-item g-tall" data-cat="bath" role="button" tabindex="0" aria-label="Enlarge: Walk-in glass shower and freestanding tub with black fixtures">
+<img alt="Walk-in glass shower and freestanding tub with black fixtures" decoding="async" loading="lazy" src="bath-walk-in-shower.webp"/>
 </div>
-<div class="g-item">
+<div class="g-item g-tall g-focus-low" data-cat="exterior" role="button" tabindex="0" aria-label="Enlarge: Screened porch with a beadboard ceiling and ceiling fan">
 <img alt="Screened porch with a beadboard ceiling and ceiling fan" decoding="async" loading="lazy" src="exterior-screened-porch.webp"/>
 </div>
-<div class="g-item">
+<div class="g-item" data-cat="kitchen" role="button" tabindex="0" aria-label="Enlarge: White kitchen with a large island, range and panelled refrigerator">
+<img alt="White kitchen with a large island, range and panelled refrigerator" decoding="async" loading="lazy" src="kitchen-island-range.webp"/>
+</div>
+<div class="g-item" data-cat="kitchen" role="button" tabindex="0" aria-label="Enlarge: White kitchen with a quartz island, lantern pendants and tile backsplash">
+<img alt="White kitchen with a quartz island, lantern pendants and tile backsplash" decoding="async" loading="lazy" src="kitchen-lantern-island.webp"/>
+</div>
+<div class="g-item g-wide" data-cat="kitchen" role="button" tabindex="0" aria-label="Enlarge: Walnut kitchen cabinets with a green glass tile backsplash">
+<img alt="Walnut kitchen cabinets with a green glass tile backsplash" decoding="async" loading="lazy" src="kitchen-walnut-green-tile.webp"/>
+</div>
+<div class="g-item" data-cat="exterior" role="button" tabindex="0" aria-label="Enlarge: Stamped concrete walkway and patio beside a brick home">
+<img alt="Stamped concrete walkway and patio beside a brick home" decoding="async" loading="lazy" src="exterior-stone-walkway.webp"/>
+</div>
+<div class="g-item" data-cat="exterior" role="button" tabindex="0" aria-label="Enlarge: Stamped concrete patio with a fire pit and garden planting">
 <img alt="Stamped concrete patio with a fire pit and garden planting" decoding="async" loading="lazy" src="exterior-patio-firepit.webp"/>
 </div>
 </div>
@@ -156,6 +138,141 @@
 </div>
 </div>
 </footer>
-<script src="script.js?v=20260916g"></script>
+<script src="script.js?v=20261002b"></script>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Project photo" hidden>
+<button class="lb-close" type="button" aria-label="Close">&times;</button>
+<button class="lb-nav lb-prev" type="button" aria-label="Previous photo">&#8249;</button>
+<figure class="lb-stage">
+<img alt="" id="lbImg"/>
+<figcaption id="lbCap"></figcaption>
+</figure>
+<button class="lb-nav lb-next" type="button" aria-label="Next photo">&#8250;</button>
+<div class="lb-count" id="lbCount"></div>
+</div>
+
+<script>
+/* ====================================================================
+   GALLERY — category filter + click-to-enlarge
+   Filtering only hides tiles, so every photo stays in the HTML and
+   nothing depends on this script to be crawlable. The lightbox walks
+   whichever tiles are currently visible.
+   ==================================================================== */
+(function () {
+  function init() {
+    var grid = document.getElementById('galleryGrid');
+    var bar  = document.getElementById('galleryFilters');
+    var box  = document.getElementById('lightbox');
+    if (!grid || !box) return;
+
+    var tiles   = Array.prototype.slice.call(grid.querySelectorAll('.g-item'));
+    var lbImg   = document.getElementById('lbImg');
+    var lbCap   = document.getElementById('lbCap');
+    var lbCount = document.getElementById('lbCount');
+    var visible = tiles.slice();
+    var at      = 0;
+    var opener  = null;
+
+    /* ---------------- filter ---------------- */
+    function applyFilter(name) {
+      visible = [];
+      tiles.forEach(function (t) {
+        var show = (name === 'all') || (t.getAttribute('data-cat') === name);
+        t.classList.toggle('is-hidden', !show);
+        if (show) visible.push(t);
+      });
+      // a single category looks tidier as an even grid than as masonry
+      grid.classList.toggle('is-filtered', name !== 'all');
+      if (bar) {
+        Array.prototype.forEach.call(bar.querySelectorAll('.gal-btn'), function (b) {
+          var on = b.getAttribute('data-filter') === name;
+          b.classList.toggle('is-on', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
+      }
+      if (typeof window.reduxTrack === 'function' && name !== 'all') {
+        window.reduxTrack('gallery_filter', { label: name });
+      }
+    }
+
+    if (bar) {
+      bar.addEventListener('click', function (e) {
+        var b = e.target.closest('.gal-btn');
+        if (b) applyFilter(b.getAttribute('data-filter'));
+      });
+    }
+
+    /* ---------------- lightbox ---------------- */
+    function show(i) {
+      if (!visible.length) return;
+      at = (i + visible.length) % visible.length;
+      var img = visible[at].querySelector('img');
+      lbImg.setAttribute('src', img.getAttribute('src'));
+      lbImg.setAttribute('alt', img.getAttribute('alt') || '');
+      lbCap.textContent = img.getAttribute('alt') || '';
+      lbCount.textContent = (at + 1) + ' of ' + visible.length;
+      box.querySelectorAll('.lb-nav').forEach(function (n) {
+        n.style.display = visible.length > 1 ? '' : 'none';
+      });
+    }
+    function open(tile) {
+      opener = tile;
+      show(visible.indexOf(tile));
+      box.hidden = false;
+      document.body.style.overflow = 'hidden';
+      box.querySelector('.lb-close').focus();
+      if (typeof window.reduxTrack === 'function') {
+        window.reduxTrack('gallery_open', { label: tile.querySelector('img').getAttribute('src') });
+      }
+    }
+    function close() {
+      box.hidden = true;
+      document.body.style.overflow = '';
+      lbImg.removeAttribute('src');
+      if (opener) { opener.focus(); opener = null; }
+    }
+
+    tiles.forEach(function (t) {
+      t.addEventListener('click', function () { open(t); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') { e.preventDefault(); open(t); }
+      });
+    });
+
+    box.querySelector('.lb-close').addEventListener('click', close);
+    box.querySelector('.lb-prev').addEventListener('click', function () { show(at - 1); });
+    box.querySelector('.lb-next').addEventListener('click', function () { show(at + 1); });
+    box.addEventListener('click', function (e) { if (e.target === box) close(); });
+
+    document.addEventListener('keydown', function (e) {
+      if (box.hidden) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') show(at - 1);
+      else if (e.key === 'ArrowRight') show(at + 1);
+      else if (e.key === 'Tab') {                 // keep focus inside the dialog
+        var f = box.querySelectorAll('button');
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    // swipe on touch
+    var x0 = null;
+    box.addEventListener('touchstart', function (e) { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    box.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 45) show(dx > 0 ? at - 1 : at + 1);
+      x0 = null;
+    }, { passive: true });
+
+    applyFilter('all');
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
 </body>
 </html>

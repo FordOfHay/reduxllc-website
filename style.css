@@ -2093,3 +2093,109 @@ header.site-header .container{
 
 /* Anchored headings shouldn't hide under anything when jumped to. */
 .article h2[id]{scroll-margin-top:24px;}
+
+/* ============================================================
+   V7 — GALLERY: CATEGORY FILTER + LIGHTBOX
+   ============================================================ */
+.gallery-filters{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin:0 0 30px;
+}
+.gal-btn{
+  font-family:'Jost',sans-serif;
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  font-weight:500;
+  padding:10px 18px;
+  border:1px solid #d8d0bf;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.gal-btn:hover{border-color:var(--green);color:var(--green);}
+.gal-btn.is-on{background:var(--green);border-color:var(--green);color:#fff;}
+.gal-btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+.gal-n{opacity:.6;margin-left:5px;font-size:11px;}
+.gal-btn.is-on .gal-n{opacity:.75;}
+
+.gallery-grid .g-item{cursor:zoom-in;}
+.gallery-grid .g-item:focus-visible{outline:3px solid var(--gold);outline-offset:3px;}
+.gallery-grid .g-item.is-hidden{display:none;}
+/* one category at a time reads better as an even grid than as masonry */
+.gallery-grid.is-filtered .g-tall{grid-row:span 1;}
+.gallery-grid.is-filtered .g-wide{grid-column:span 1;}
+
+/* --- lightbox --- */
+.lightbox{
+  position:fixed;
+  inset:0;
+  z-index:200;
+  background:rgba(8,14,11,.94);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px 20px 72px;
+}
+.lightbox[hidden]{display:none;}
+.lb-stage{margin:0;max-width:min(1200px,92vw);max-height:100%;display:flex;flex-direction:column;gap:14px;}
+.lb-stage img{
+  max-width:100%;
+  max-height:calc(100vh - 160px);
+  width:auto;height:auto;
+  object-fit:contain;
+  display:block;
+  margin:0 auto;
+}
+.lb-stage figcaption{
+  color:rgba(255,255,255,.82);
+  font-size:14px;
+  text-align:center;
+  line-height:1.6;
+  max-width:70ch;
+  margin:0 auto;
+}
+.lb-close,.lb-nav{
+  position:absolute;
+  background:rgba(255,255,255,.10);
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;
+  cursor:pointer;
+  display:grid;
+  place-items:center;
+  transition:background .2s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.lb-close:hover,.lb-nav:hover{background:rgba(255,255,255,.22);}
+.lb-close:focus-visible,.lb-nav:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+.lb-close{top:18px;right:18px;width:46px;height:46px;font-size:28px;line-height:1;border-radius:50%;}
+.lb-nav{top:50%;transform:translateY(-50%);width:52px;height:52px;font-size:30px;line-height:1;border-radius:50%;}
+.lb-prev{left:18px;}
+.lb-next{right:18px;}
+.lb-count{
+  position:absolute;
+  bottom:26px;left:50%;transform:translateX(-50%);
+  color:rgba(255,255,255,.7);
+  font-size:12px;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+}
+@media(max-width:760px){
+  .lightbox{padding:16px 12px 64px;}
+  .lb-stage img{max-height:calc(100vh - 150px);}
+  .lb-nav{width:44px;height:44px;font-size:26px;}
+  .lb-prev{left:8px;}
+  .lb-next{right:8px;}
+  .lb-close{top:10px;right:10px;width:42px;height:42px;}
+  .gal-btn{font-size:11px;padding:9px 13px;letter-spacing:1.2px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .gallery-grid .g-item img{transition:none;}
+}
+
+/* A couple of tall tiles centre-crop onto ceilings; pull the focal point down. */
+.gallery-grid .g-item.g-focus-low img{object-position:center 72%;}
