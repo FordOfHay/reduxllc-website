@@ -1,0 +1,7 @@
+.chapel-intro { max-width: 760px; margin-bottom: 32px; }
+.chapel-intro h2 { margin: 0 0 12px; }
+.chapel-eyebrow { color: var(--green); text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; font-weight: 700; }
+/* Keep the complete photograph, including the photographer's watermark, visible. */
+.gallery-grid .chapel-photo { background: #edf0ed; }
+.gallery-grid .chapel-photo img { object-fit: contain; }
+.gallery-grid .chapel-photo:hover img { transform: none; }
