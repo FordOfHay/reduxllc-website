@@ -48,3 +48,6 @@ body { background:var(--pf-paper); }
 @media(max-width:800px) { .pf-cat>.container { width:calc(100% - 40px); } .pf-cat { padding-top:70px; } .pf-grid { gap:30px 18px; } .pf-cap .pf-name { font-size:17px; } .pf-cap { flex-wrap:wrap; gap:5px; } }
 @media(max-width:600px) { .page-hero { min-height:260px; } .pf-intro { padding:64px 20px 15px; } .pf-cat { padding-top:60px; } .pf-grid { grid-template-columns:1fr; gap:28px; } .pf-shot { aspect-ratio:1.45; } .pf-cat-head { margin-bottom:25px; } .pf-more { text-align:left; } .pf-view { opacity:1; transform:none; bottom:12px; right:12px; } }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .pf-card,.pf-shot img,.pf-view { transition:none; } .pf-card:hover { transform:none; } .pf-card:hover .pf-shot img { transform:none; } }
+
+/* Project titles only; no building or property names */
+.pf-cap { justify-content:flex-start; }
