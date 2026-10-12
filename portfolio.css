@@ -1,0 +1,172 @@
+/* ==========================================================================
+   REDUX LLC — PORTFOLIO LAYOUT
+   --------------------------------------------------------------------------
+   Category-sectioned portfolio: each room type gets a heading, a short
+   intro, a row of large project cards with a caption bar, and a button
+   through to the rest of that category.
+
+   This file is self-contained. It adds new class names only and does not
+   change any rule in style.css, so the rest of the site is untouched.
+   Load it after style.css.
+   ========================================================================== */
+
+/* ---------- The band that holds one category ---------- */
+.pf-cat {
+  padding: 72px 0 0;
+}
+.pf-cat:first-of-type {
+  padding-top: 24px;
+}
+.pf-cat:last-of-type {
+  padding-bottom: 72px;
+}
+
+.pf-cat-head {
+  max-width: 760px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+.pf-cat-head h2 {
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--green-dark);
+  margin-bottom: 14px;
+}
+.pf-cat-head p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* A thin gold rule above each heading, matching the site's section style. */
+.pf-cat-head::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 22px;
+}
+
+/* ---------- The cards ---------- */
+.pf-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 36px 32px;
+}
+
+.pf-card {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  box-shadow: 0 1px 2px rgba(27, 58, 47, .06);
+  transition: box-shadow .3s ease, transform .3s ease;
+}
+.pf-card:hover,
+.pf-card:focus-visible {
+  box-shadow: 0 14px 34px rgba(27, 58, 47, .16);
+  transform: translateY(-3px);
+}
+.pf-card:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 3px;
+}
+
+.pf-shot {
+  display: block;            /* it is a <span>, so this is what lets the ratio apply */
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--cream-dark);
+}
+.pf-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.pf-card:hover .pf-shot img {
+  transform: scale(1.04);
+}
+
+/* Caption bar under each photo — the label strip in the reference layout. */
+.pf-cap {
+  padding: 15px 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+.pf-cap .pf-name {
+  font-size: 15px;
+  letter-spacing: .3px;
+  color: var(--ink);
+  transition: color .25s ease;
+}
+.pf-card:hover .pf-cap .pf-name {
+  color: var(--green);
+}
+.pf-cap .pf-where {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Optional corner flag, for an award or a featured job. */
+.pf-flag {
+  position: absolute;
+  top: 14px;
+  right: 0;
+  background: var(--green-dark);
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 6px 14px 6px 16px;
+}
+
+/* ---------- The button under each category ---------- */
+.pf-more {
+  text-align: center;
+  margin-top: 36px;
+}
+.pf-more .btn::after {
+  content: " \203A";
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* ---------- Narrower screens ---------- */
+@media (max-width: 900px) {
+  .pf-cat { padding-top: 56px; }
+  .pf-cat-head h2 { font-size: 28px; }
+  .pf-grid { gap: 28px 22px; }
+}
+
+@media (max-width: 680px) {
+  .pf-grid {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .pf-cat { padding-top: 46px; }
+  .pf-cat-head { margin-bottom: 28px; }
+  .pf-cat-head h2 { font-size: 25px; }
+  .pf-cat-head p { font-size: 15px; }
+  .pf-cap { padding: 13px 16px; }
+}
+
+/* Someone who has asked their device to reduce motion gets none of it. */
+@media (prefers-reduced-motion: reduce) {
+  .pf-card,
+  .pf-shot img {
+    transition: none;
+  }
+  .pf-card:hover { transform: none; }
+  .pf-card:hover .pf-shot img { transform: none; }
+}
