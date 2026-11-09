@@ -1651,9 +1651,10 @@ footer{background:#f5f5f7;color:#6e6e73;}
   background:#fff;
   border:1px solid rgba(28,28,28,.08);
   padding:8px 8px 0;
-  min-height:960px;
+  min-height:0;
 }
-#btIframe{min-height:940px;}
+#btIframe{display:block;min-height:940px;}
+#btIframe[data-sized="true"]{min-height:0;}
 
 /* --- FAQ accordion --- */
 .faq-list{max-width:860px;margin:0 auto;}
@@ -2199,3 +2200,13 @@ header.site-header .container{
 
 /* A couple of tall tiles centre-crop onto ceilings; pull the focal point down. */
 .gallery-grid .g-item.g-focus-low img{object-position:center 72%;}
+
+/* Give the request form room to breathe on phones. */
+@media (max-width:600px){
+  .contact-form{padding:24px 16px;}
+  .contact-form h3{font-size:26px;}
+  .form-fallback{padding:12px;overflow-wrap:anywhere;}
+  .hours-row{gap:16px;}
+  .hours-row span:last-child{flex:0 0 45%;text-align:right;}
+  .bt-form-frame{padding:4px 4px 0;}
+}
