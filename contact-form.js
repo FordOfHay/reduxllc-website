@@ -16,7 +16,7 @@
       height = data.replace(/^h=/, '');
     }
     height = Number(height);
-    if (!Number.isFinite(height) || height < 100 || height > 10000) return;
+    if (!Number.isFinite(height) || height < 24 || height > 10000) return;
     frame.style.height = Math.ceil(height + 24) + 'px';
     frame.setAttribute('data-sized', 'true');
   });
