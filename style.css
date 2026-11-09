@@ -2210,3 +2210,31 @@ header.site-header .container{
   .hours-row span:last-child{flex:0 0 45%;text-align:right;}
   .bt-form-frame{padding:4px 4px 0;}
 }
+
+/* Make the journey from project photos to a request easy to follow. */
+nav.main-nav a.nav-estimate{background:var(--logo-green,#8bbd47);color:#15281f;padding:12px 17px;border-radius:4px;font-weight:700;opacity:1;white-space:nowrap;}
+nav.main-nav a.nav-estimate:hover{background:#a6d265;opacity:1;}
+.work-next{max-width:1200px;margin:32px auto 0;padding:0 20px;display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap;}
+.work-text-link{display:inline-block;color:var(--green-dark);font-size:14px;font-weight:600;text-underline-offset:5px;line-height:1.6;}
+.work-text-link:hover{text-decoration:underline;}
+.estimate-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.contact-grid{grid-template-areas:"info form";}
+.contact-info{grid-area:info;}
+.contact-form{grid-area:form;scroll-margin-top:24px;}
+.contact-form h2{font-size:28px;line-height:1.2;margin-bottom:18px;}
+.lightbox{padding-bottom:132px;z-index:1100;}
+.lb-stage img{max-height:calc(100vh - 240px);max-height:calc(100dvh - 240px);}
+.lb-count{bottom:91px;}
+.lb-estimate{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:13px;}
+@media(max-width:980px){
+  .contact-grid{grid-template-areas:"form" "info";}
+  nav.main-nav ul li a.nav-estimate{display:inline-block;width:auto;padding:12px 24px;margin:10px 0;}
+}
+@media(max-width:600px){
+  .work-next{align-items:stretch;gap:16px;text-align:center;}
+  .work-next .btn{width:100%;}
+  .estimate-actions .btn{flex:1 1 100%;text-align:center;}
+  .contact-grid{gap:40px;}
+  .contact-form h2{font-size:26px;}
+  .lb-stage figcaption{font-size:12px;line-height:1.4;}
+}

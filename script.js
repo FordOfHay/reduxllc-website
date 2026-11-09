@@ -214,8 +214,8 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
     var current = window.location.pathname.split('/').pop() || 'index.html';
     if (current.indexOf('.') === -1) current += '.html';
     document.querySelectorAll('nav.main-nav a, .footer-nav a').forEach(function (link) {
-      var href = link.getAttribute('href');
-      if (href === current) link.classList.add('active');
+      var href = (link.getAttribute('href') || '').split(/[?#]/)[0];
+      if (href === current) { link.classList.add('active'); link.setAttribute('aria-current', 'page'); }
       else if (href === 'blog.html' && current.indexOf('blog-') === 0) link.classList.add('active');
     });
 
