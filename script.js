@@ -196,6 +196,13 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
         var open = nav.classList.toggle('open');
         toggle.setAttribute('aria-expanded', String(open));
       });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
       nav.querySelectorAll('a').forEach(function (link) {
         link.addEventListener('click', function () {
           nav.classList.remove('open');
@@ -205,6 +212,7 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
     }
 
     var current = window.location.pathname.split('/').pop() || 'index.html';
+    if (current.indexOf('.') === -1) current += '.html';
     document.querySelectorAll('nav.main-nav a, .footer-nav a').forEach(function (link) {
       var href = link.getAttribute('href');
       if (href === current) link.classList.add('active');
@@ -313,81 +321,18 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
       });
     });
 
-    /* ---------------- Buildertrend iframe: fit to content, measure leads ----------------
-       The form itself is served by buildertrend.net, so the browser will not
-       let this page see what happens inside it — no submit event, no field
-       values, no thank-you text. Three things ARE observable from out here:
-
-         1. the frame scrolling into view            -> contact_form_view
-         2. keyboard focus moving into the frame     -> contact_form_start
-         3. the height messages Buildertrend posts   -> generate_lead (inferred)
-
-       (1) and (2) are facts. (3) is an inference: after someone has actually
-       typed in the form, Buildertrend replaces it with a short confirmation
-       panel, and the frame collapses. We require a large, one-way collapse
-       to call that a lead. It will be close, not exact — the real lead count
-       lives in Buildertrend, and these numbers should be checked against it
-       before any ad platform is allowed to optimise toward them. */
+    /* The cross-origin form owns validation and submission. Height changes
+       are layout signals, never proof that a lead was submitted. */
     var btFrame = document.getElementById('btIframe');
     if (btFrame) {
-      var btPeak     = 0;      // tallest the frame has ever been (the open form)
-      var btMsgs     = 0;
-      var btTouched  = false;  // visitor has focused something inside the frame
-      var btOpenedAt = Date.now();
-      var btLeadSent = false;
-
-      try { btLeadSent = sessionStorage.getItem('reduxBtLead') === '1'; } catch (e) { }
-
-      var btMarkTouched = function () {
-        if (btTouched) return;
-        btTouched = true;
-        track('contact_form_start', { label: 'buildertrend' });
-      };
-
-      /* A cross-origin iframe swallows its own clicks and keystrokes, but the
-         parent window still loses focus to it, and document.activeElement
-         becomes the frame. That is the one reliable signal that someone is
-         filling the form in rather than just looking at it. */
+      var btTouched = false;
       window.addEventListener('blur', function () {
         setTimeout(function () {
-          if (document.activeElement === btFrame) btMarkTouched();
+          if (!btTouched && document.activeElement === btFrame) {
+            btTouched = true;
+            track('contact_form_start', { label: 'buildertrend' });
+          }
         }, 0);
-      });
-
-      window.addEventListener('message', function (event) {
-        if (String(event.origin).indexOf('buildertrend.net') === -1) return;
-
-        var h = null;
-        if (typeof event.data === 'number') h = event.data;
-        else if (event.data && typeof event.data === 'object') h = event.data.height || event.data.frameHeight;
-        else if (typeof event.data === 'string' && /^\d+$/.test(event.data)) h = parseInt(event.data, 10);
-        if (!h || h <= 400 || h >= 4000) return;
-
-        btFrame.style.height = (h + 40) + 'px';
-        btMsgs++;
-        if (document.activeElement === btFrame) btMarkTouched();
-
-        /* Ignore the first message and the first couple of seconds: that is
-           the frame reporting its own initial render, not a visitor doing
-           anything. */
-        var settled = btMsgs > 1 && (Date.now() - btOpenedAt) > 2500;
-
-        if (h > btPeak) { btPeak = h; return; }   // growing = still filling it in
-        if (btLeadSent || !btTouched || !settled) return;
-
-        /* A confirmation panel is far shorter than the form it replaced.
-           Require both a big absolute drop and a big proportional one, so
-           an inline validation message or a collapsing optional section
-           cannot be mistaken for a submission. */
-        if (btPeak - h >= 250 && h <= btPeak * 0.7) {
-          btLeadSent = true;
-          try { sessionStorage.setItem('reduxBtLead', '1'); } catch (e) { }
-          track('generate_lead', {
-            label: 'buildertrend',
-            method: 'contact_form',
-            inferred: true
-          });
-        }
       });
 
       if ('IntersectionObserver' in window) {
@@ -405,7 +350,9 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
 
     /* ---------------- Sticky conversion bar ---------------- */
     var onContact = current === 'contact.html' || current === 'contact';
-    if (!onContact && !sessionStorage.getItem('reduxStickyClosed')) {
+    var stickyClosed = false;
+    try { stickyClosed = sessionStorage.getItem('reduxStickyClosed') === '1'; } catch (e) { }
+    if (!onContact && !stickyClosed) {
       var bar = document.createElement('div');
       bar.className = 'sticky-cta';
       bar.innerHTML =
@@ -421,13 +368,14 @@ var REDUX_ADS_ID = '';           // optional Google Ads ID, e.g. 'AW-123456789'
       document.body.appendChild(bar);
 
       bar.querySelector('.sticky-cta-close').addEventListener('click', function () {
+        stickyClosed = true;
         bar.classList.remove('is-visible');
         document.body.classList.remove('has-sticky-cta');
         try { sessionStorage.setItem('reduxStickyClosed', '1'); } catch (e) { }
       });
 
       var showBar = function () {
-        if (window.scrollY > 600) {
+        if (!stickyClosed && window.scrollY > 600) {
           bar.classList.add('is-visible');
           document.body.classList.add('has-sticky-cta');
         } else {
