@@ -51,3 +51,18 @@ body { background:var(--pf-paper); }
 
 /* Project titles only; no building or property names */
 .pf-cap { justify-content:flex-start; }
+
+/* A visual directory puts completed work one tap away. */
+.pf-intro{max-width:1200px;padding-top:52px;}
+.work-browse{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin:32px 0 24px;text-align:left;}
+.work-browse a{display:block;color:var(--pf-forest);border:1px solid #d7ddd7;background:#fff;text-decoration:none;}
+.work-browse img{display:block;width:100%;height:auto;aspect-ratio:1.45;object-fit:cover;}
+.work-browse a>span{display:flex;justify-content:space-between;gap:8px;padding:15px 12px;font-size:14px;font-weight:600;}
+.work-browse a:hover,.work-browse a:focus-visible{outline:2px solid var(--pf-forest);outline-offset:3px;}
+.pf-more{display:flex;gap:18px;justify-content:space-between;align-items:center;flex-wrap:wrap;}
+@media(max-width:600px){
+  .work-browse{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+  .work-browse a>span{font-size:13px;padding:12px 10px;}
+  .pf-intro{padding-top:38px;}
+  .pf-more{align-items:flex-start;flex-direction:column;}
+}
